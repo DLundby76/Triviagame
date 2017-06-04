@@ -1,0 +1,100 @@
+<!doctype html>
+<head>
+	<meta charset="UTF-8">
+	<title>trivia game</title>
+
+	  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<script
+  		src="https://code.jquery.com/jquery-3.2.1.js"
+ 		integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  		crossorigin="anonymous"></script>
+
+   	<script type="text/javascript" src="assets/javascript/bootstrap.min.js"></script>
+
+  	<script type="text/javascript" src="./assets/javascript/app.js"></script>
+</head>
+<div class="game-container">
+	<div class="container-fluid">
+		<div class="jumbotron" id="trivia-title">
+			<div id="title-container">
+  				<h1>State and Capitols Trivia</h1>
+  			</div>
+		</div>
+	</div>
+
+<div class="gameplay-container container">
+	<div id="timer">
+	</div>
+	<div>
+		<div id="trivia-content">
+			<div id = "start-screen">
+				<div id="instuctions">
+  					<h1>instuctions to trivia</h1>
+  				</div>
+  					<br>
+  				<div class= "button" id = "easy-button"> <button>Easy!</button>
+  				</div>
+  					<br>
+  				<div class= "button" id = "medium-button"> <button>Medium!</button>
+  				</div>
+  					<br>
+  				<div class= "button" id = "hard-button"> <button>Hard!</button>
+  				</div>
+  			</div>
+  			
+			<!-- currectCard section -->
+  			<div id ="current-card">
+  				<h1 id = "display-question"></h1>
+  				<div id ="display-choices">
+  					<div>
+  						<button id = "option-1">
+  						</button>
+  					</div>
+  					<div>
+  						<button id = "option-2">
+  						</button>
+  					</div>
+  					<div>
+  						<button id = "option-3">
+  						</button>
+  					</div>
+  					<div>
+  						<button id = "option-4">
+  						</button>
+  					</div>
+  					<div>
+  						<button id = "option-5">
+  						</button>
+  					</div>
+  				</div>
+  			</div>
+  			<div id= "game-finished">
+  				<h1> Game over </h1>
+  				<div id = "wins-tally">
+  					<h2> correct answers</h2>
+  					<h2 id = "wins"> </h2>
+  				</div>
+  				<div id = "losses-tally">
+  					<h2> wrong answers </h2>
+  					<h2 id = "losses"></h2>
+  				</div>
+  				<div>
+  					<button id = "new-game"> New Game</button>
+  				</div>
+  			</div>
+  		</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<body>
+	
+</body>
+</html>

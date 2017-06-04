@@ -1,0 +1,65 @@
+body{
+	background-image: url("../images/trivia.jpg");
+}
+
+#trivia-title{
+	background-image: url("../images/trivia.jpg");
+	border-style: solid;
+	border-color: black;
+	border-width: 3px;
+	font: "Engravers MT";
+}
+
+#title-container{
+	font-size: 48pt;
+	text-align: center;
+	color:white;
+	}
+
+h1{
+	background-color: blue;
+	border-style: solid;
+	border-color: black;
+	border-width: 3px;
+	font: "Engravers MT";
+	color:white;
+
+}
+
+#trivia-content{
+	background-image: url("../images/trivia.jpg");
+	border-style: solid;
+	border-color: black;
+	border-width: 3px;
+	font-size: 24pt;
+	text-align: center;
+	height:400px;
+}
+
+#game-selection h2{
+	background-color: blue;
+	border-style: solid;
+	border-color: black;
+	border-width: 3px;
+	font: "Engravers MT";
+	color:white;
+}
+
+#game-selection{
+	text-align: center;
+}
+
+#timer{
+	background-image: url("../images/trivia.jpg");
+	border-style: solid;
+	border-color: black;
+	border-width: 3px;
+	font-size: 48pt;
+	text-align: center;
+	font: "Engravers MT";
+	font-weight: bold;
+}
+
+
+
+
