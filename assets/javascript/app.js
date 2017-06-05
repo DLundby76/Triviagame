@@ -209,22 +209,25 @@ function shuffle(array, limit) {
 //         }
 //     }, 1000);
 // }
- 
+ var timer;
 function newTimer(seconds){
   var nextSecond = seconds - 1;
   var minutes = parseInt(seconds / 60, 10);
-  var seconds = parseInt(seconds % 60, 10);
+  var currentSeconds = parseInt(seconds % 60, 10);
+  console.log("Current SECONDSSSSSSS", currentSeconds)
+  console.log("Seconds", seconds, "Formated Seconds", currentSeconds,"Minutes", minutes)
+      currentSeconds = currentSeconds < 10 ? "0" + currentSeconds : currentSeconds;
       minutes = minutes < 10 ? "0" + minutes : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
-
-  var time = "" + minutes + ":" + seconds;
+  var time = "" + minutes + ":" + currentSeconds;
 
   $("#timer").text(time);
 
   if (nextSecond === 0) {
     gameOver();
   }else {
-    setTimeout(newTimer(nextSecond), 1000);
+    timer = setTimeout(function(){
+      newTimer(nextSecond);
+    }, 1000)
   }
 }
 
@@ -267,15 +270,14 @@ function newGame(){
   wrongAnswer = 0
   $("#game-finished").hide()
   $("#start-screen").show()
-  console.log( "working?")
-
 
 }
 
 
 function easy(){
-	var easyTime = 75
-	newTimer(easyTime)
+	var easyTime = 75;
+  clearTimeout(timer);
+	newTimer(easyTime);
   currentDeck = shuffle(questions, 10)
   $("#start-screen").hide();
   $("#current-card").show();
@@ -283,7 +285,8 @@ function easy(){
 }
 
 function medium(){
-	var mediumTime = 60
+	var mediumTime = 60;
+  clearTimeout(timer);
 	newTimer(mediumTime)
   currentDeck = shuffle(questions, 15)
   $("#start-screen").hide();
@@ -293,6 +296,7 @@ function medium(){
 
 function hard(){
 	var hardTime = 45
+  clearTimeout(timer);
 	newTimer(hardTime)
   currentDeck = shuffle(questions, 20)
   $("#start-screen").hide();
