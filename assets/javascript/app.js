@@ -174,8 +174,10 @@ $(document).ready(function() {
 
 ];
 function shuffle(array, limit) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
   var totalQuestions = [];
+  var arrayCopy = array.slice(0);
+  var currentIndex = arrayCopy.length, temporaryValue, randomIndex;
+  console.log(arrayCopy, "working")
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
   	if(totalQuestions.length < limit){
@@ -183,10 +185,10 @@ function shuffle(array, limit) {
     	randomIndex = Math.floor(Math.random() * currentIndex);
     	currentIndex -= 1;
   		    // And swap it with the current element.
-		    temporaryValue = array[currentIndex];
-		    totalQuestions.push(array[randomIndex]);
-		    array[randomIndex] = temporaryValue;
-	} else {
+		    temporaryValue = arrayCopy[currentIndex];
+		    totalQuestions.push(arrayCopy[randomIndex]);
+		    arrayCopy.splice(randomIndex, 1);
+	} else { 
 		return totalQuestions;
 	}
 
@@ -209,7 +211,7 @@ function shuffle(array, limit) {
 //         }
 //     }, 1000);
 // }
- var timer;
+ var startTimer;
 function newTimer(seconds){
   var nextSecond = seconds - 1;
   var minutes = parseInt(seconds / 60, 10);
@@ -222,10 +224,10 @@ function newTimer(seconds){
 
   $("#timer").text(time);
 
-  if (nextSecond === 0) {
+  if (nextSecond === 0 ) {
     gameOver();
   }else {
-    timer = setTimeout(function(){
+    startTimer = setTimeout(function(){
       newTimer(nextSecond);
     }, 1000)
   }
@@ -263,6 +265,7 @@ function gameOver(){
    $("#game-finished").show();
    $("#wins").text(rightAnswer)
    $("#losses").text(wrongAnswer)
+    clearTimeout(startTimer)
 }
 
 function newGame(){
@@ -271,12 +274,13 @@ function newGame(){
   $("#game-finished").hide()
   $("#start-screen").show()
 
+
 }
 
 
 function easy(){
 	var easyTime = 75;
-  clearTimeout(timer);
+  clearTimeout(startTimer);
 	newTimer(easyTime);
   currentDeck = shuffle(questions, 10)
   $("#start-screen").hide();
@@ -286,7 +290,7 @@ function easy(){
 
 function medium(){
 	var mediumTime = 60;
-  clearTimeout(timer);
+  clearTimeout(startTimer);
 	newTimer(mediumTime)
   currentDeck = shuffle(questions, 15)
   $("#start-screen").hide();
@@ -296,7 +300,7 @@ function medium(){
 
 function hard(){
 	var hardTime = 45
-  clearTimeout(timer);
+  clearTimeout(startTimer);
 	newTimer(hardTime)
   currentDeck = shuffle(questions, 20)
   $("#start-screen").hide();
